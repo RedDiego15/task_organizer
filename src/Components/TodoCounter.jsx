@@ -17,11 +17,11 @@ const Counter = styled.p`
   color:#5E454B;
 
 `
-function TodoCounter() {
+function TodoCounter(props) {
   return (
     <Header>
       <Title>Tasks</Title>
-      <Counter>Completed 2 of 4</Counter>
+      <Counter>Completed {props.realizedTasks} of {props.totalTasks} tasks</Counter>
     </Header>
   )
 }

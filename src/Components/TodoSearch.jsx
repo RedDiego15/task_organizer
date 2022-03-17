@@ -33,15 +33,23 @@ const ContainerInpunt = styled.div`
   
 `
 
-function TodoSearch() {
+function TodoSearch({searchValue,setSearchValue}) {
+  
   const onSearchValueChange = (e) => {
-    console.log(e.target.value);
+    
+    setSearchValue(e.target.value);
+    console.log(searchValue);
+    
 
   }
   return (
     <ContainerInpunt>
-        <Input placeholder="Search task" type="text" name="" id="" 
-        onChange={onSearchValueChange}/>
+        <Input 
+        placeholder="Search task" 
+        type="text" name="" id="" 
+        value = {searchValue}
+        onChange={onSearchValueChange}
+        />
         <Icon src={Search_icon} alt="search icon" />
     </ContainerInpunt>
   )

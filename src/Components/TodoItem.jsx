@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import DelIcon from '../assets/del_icon.png'
-import {MarkTaskButton} from './MarkTaskButton'
+import OkIcon from '../assets/ok_icon.png';
 
 const ListItem = styled.li`
   position:relative;
@@ -12,31 +12,59 @@ const ListItem = styled.li`
   min-height:2.5rem;
   list-style: none;
   margin:0.5rem 0;
-  background-color: #cac0a7b3;
+  background-color: ${props => (props.completed ? '#5d5c54bf' : '#cac0a7b3;')};
   box-shadow: 3px 3px 5px 0px #141615;
+
 `
 
 const DeleteIcon = styled.span`
   background-image: url(${DelIcon});
   background-repeat:no-repeat;
+  cursor:pointer;
+  width: 40px;
+  height:40px;
+    &:hover{
+      background-color: red;
+      border-radius: 50%;
+    }
+`
+  const Circle = styled.div`
+  background-color: #bae0bd;
+  border: 2px solid #83b591;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  cursor:pointer;
+    &:hover{
+        background-color:white;
+       
+    }
+`
+const OkeyIcon = styled.span`
+  background-image: url(${OkIcon});
+  background-repeat:no-repeat;
+  cursor:pointer;
   width: 40px;
   height:40px;
   `
 
 
+
 function TodoItem(props) {
-  const OnDelete = () =>{
-    alert('has eliminado el task')
-}
-  
+  const {lista,onComplete,onDelete} = props;
+  let button;
+  if(lista.completed){
+    button = <OkeyIcon onClick={onComplete}/>
+  }else{
+    button = <Circle onClick={onComplete}/>
+  }
+
   return (
-    <ListItem>
-      <MarkTaskButton isDone={props.lista.completed}
-      
-      ></MarkTaskButton>
-      <p>{props.lista.text}</p>
+    <ListItem completed = {lista.completed}>
+      {button}
+      <p>{lista.text}</p>
       <DeleteIcon
-      onClick={OnDelete}
+      onClick={onDelete}
       />
     </ListItem>
   )
