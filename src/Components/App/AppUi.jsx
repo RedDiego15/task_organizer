@@ -1,30 +1,34 @@
 import React from 'react'
 import {CreateTodoButton} from '../CreateTodoButton';
+
 import {TodoCounter} from '../TodoCounter';
+import {TodoContext} from '../../TodoContext';
 import {TodoItem} from '../TodoItem';
 import {TodoList} from '../TodoList';
 import {TodoSearch} from '../TodoSearch';
 import {Theme} from '../../styles/Theme';
 
-function AppUi({
+function AppUi() {
+  const {
+    loading,
+    error,
     realizedTasks,
     totalTasks,
     searchValue,
     setSearchValue,
     filteredTodoList,
     toggleTodo,
-    deleteTodo
-}) {
+    deleteTodo,} = React.useContext(TodoContext);
+
   return (
     <Theme theme={"principal"}>
-    <TodoCounter 
-    realizedTasks ={realizedTasks}
-    totalTasks ={totalTasks}/>
-    <TodoSearch 
-      searchValue={searchValue}
-      setSearchValue={setSearchValue}
-    />
+    <TodoCounter />
+    <TodoSearch />
+    
     <TodoList >
+      {loading && <p>Loading...</p>}
+      {error && <p>Error!!!</p>}
+      {(!loading && !filteredTodoList.length) && <p>Create your first to do</p>} 
       {
         filteredTodoList.map(todo => {
           return <TodoItem 
@@ -36,7 +40,8 @@ function AppUi({
         })
       }
     </TodoList >
-    <CreateTodoButton />
+
+  <CreateTodoButton />
   </Theme>
     
   )

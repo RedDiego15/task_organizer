@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Search_icon from '../assets/search_icon.png';
+import {TodoContext} from '../TodoContext'
 
 const Input = styled.input`
   position:relative;
@@ -33,14 +34,11 @@ const ContainerInpunt = styled.div`
   
 `
 
-function TodoSearch({searchValue,setSearchValue}) {
+function TodoSearch() {
+  const {searchValue,setSearchValue} = React.useContext(TodoContext)
   
   const onSearchValueChange = (e) => {
-    
     setSearchValue(e.target.value);
-    console.log(searchValue);
-    
-
   }
   return (
     <ContainerInpunt>

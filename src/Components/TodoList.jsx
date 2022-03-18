@@ -16,6 +16,18 @@ const ListItem = styled.ul`
   flex-direction: column;
   overflow-y:scroll;
   padding-right:1rem;
+    &::-webkit-scrollbar{
+      background-color: white;
+      color: grey;
+      display: inline-block;
+      width: 10px;
+      border-radius: 5px
+    }
+    &::-webkit-scrollbar-thumb{
+      background-color: #5e454b;
+      border-radius: 5px;
+      width: 0.2rem;
+  }
   
 `
 
