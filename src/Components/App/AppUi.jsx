@@ -7,15 +7,15 @@ import {TodoItem} from '../TodoItem';
 import {TodoList} from '../TodoList';
 import {TodoSearch} from '../TodoSearch';
 import {Theme} from '../../styles/Theme';
+import {Modal} from '../../Modal';
+import {TodoForm} from '../TodoForm';
 
 function AppUi() {
   const {
     loading,
     error,
-    realizedTasks,
-    totalTasks,
-    searchValue,
-    setSearchValue,
+    openModal,
+    setOpenModal,
     filteredTodoList,
     toggleTodo,
     deleteTodo,} = React.useContext(TodoContext);
@@ -40,8 +40,16 @@ function AppUi() {
         })
       }
     </TodoList >
+    
+    {openModal && (
+    <Modal>
+      <TodoForm/>
+    </Modal>
+    )}
 
-  <CreateTodoButton />
+  <CreateTodoButton 
+    setOpenModal={setOpenModal}
+  />
   </Theme>
     
   )

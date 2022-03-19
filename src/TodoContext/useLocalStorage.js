@@ -9,7 +9,6 @@ function useLocalStorage(itemName, initialValue) {
 
             try{
                 const localStorageItem = localStorage.getItem(itemName)
-                debugger
                 let parsedItem;
                 console.log(localStorageItem)
           

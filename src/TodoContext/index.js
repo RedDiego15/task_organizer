@@ -9,19 +9,28 @@ function TodoProvider(props){
         loading,
         error
       } = useLocalStorage('TODOS_V1',[]);
-  console.log(todoList)
   
 
   const [searchValue,setSearchValue] = React.useState('');
-  //const [todoList,setTodoList] = React.useState(parsedTodos);
+  const [openModal,setOpenModal] = React.useState(false);
   const realizedTasks = todoList.filter((task) => task.completed).length
   const totalTasks = todoList.length
 
   const filteredTodoList = todoList.filter((task) => task.text.toLowerCase().includes(searchValue.toLowerCase()));
+  
   const getIdxCopyList = (text) =>{
     const idx = todoList.findIndex((todo) => todo.text.toLowerCase() === text.toLowerCase() )
     const newTodos = [...todoList]
     return {idx,newTodos}
+
+  }
+  const addTodo = (text) => {
+    let newTodos = [...todoList];
+    newTodos.push({
+      text:text,
+      completed:false
+    })
+    setTodoList(newTodos)
 
   }
   const toggleTodo = (text) => {
@@ -47,6 +56,9 @@ function TodoProvider(props){
             filteredTodoList,
             toggleTodo,
             deleteTodo,
+            openModal,
+            setOpenModal,
+            addTodo
 
         }}>
             {props.children}

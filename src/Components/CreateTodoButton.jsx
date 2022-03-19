@@ -8,6 +8,7 @@ const ButtonContainer = styled.div`
   justify-content: flex-end;
   margin 10px auto 0;
   max-width: 31rem;
+  z-index: 2;
   
   
 `
@@ -25,11 +26,11 @@ const Button = styled.button`
 
 `
 
-function CreateTodoButton(props) {
+function CreateTodoButton({setOpenModal}) {
   return (
     <ButtonContainer>
         <Button
-        onClick={() => console.log('click')}
+        onClick={() => setOpenModal((prevState) => !prevState)}
         >+</Button>
     </ButtonContainer>
   )
