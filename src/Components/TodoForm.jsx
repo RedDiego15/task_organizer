@@ -42,13 +42,16 @@ const CancelButton = styled(AddButton)`
   background-color: grey;
 `
 const TextArea = styled.textarea`
-    width:85%;
-    height:100%;
-    border-radius:5px;
-    border: 2px solid #5e454b;
+width:85%;
+height:100%;
+border-radius:5px;
+border: 2px solid #5e454b;
 
 `
+
+
 function TodoForm() {
+
   const [newTodoValue,setNewTodoValue] = React.useState('')
   const {
     addTodo,
@@ -56,7 +59,6 @@ function TodoForm() {
   }= React.useContext(TodoContext)
 
   const handleClick = (event) => {
-    console.log(event)
     if(event.target.className.includes('Modal-container'))
       setOpenModal(false);
   };
@@ -81,6 +83,7 @@ function TodoForm() {
   const onSubmit = (event) => {
     event.preventDefault();
     addTodo(newTodoValue)
+    setNewTodoValue('');
   
   }
   return (

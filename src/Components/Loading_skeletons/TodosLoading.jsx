@@ -68,8 +68,6 @@ const LoadingSecondBar = styled(LoadingFirstBar)`
 
 
 function TodosLoading() {
-
-  {debugger}
   return (
     
     <ListItem>
