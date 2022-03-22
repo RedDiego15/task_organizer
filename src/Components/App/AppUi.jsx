@@ -21,7 +21,7 @@ function AppUi() {
     filteredTodoList,
     toggleTodo,
     deleteTodo,} = React.useContext(TodoContext);
-
+    {debugger}
   return (
     <Theme theme={"principal"}>
     <TodoCounter />
@@ -30,7 +30,6 @@ function AppUi() {
     <TodoList >
       {loading && <TodosLoading />}
       {error && <TodosError />}
-      
       {!loading && filteredTodoList.length === 0 && <EmptyTodos/>}
       {(!loading && !filteredTodoList.length)} 
       {

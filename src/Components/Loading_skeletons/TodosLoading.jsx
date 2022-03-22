@@ -64,23 +64,28 @@ const LoadingFirstBar = styled.div`
 const LoadingSecondBar = styled(LoadingFirstBar)`
     width: 6rem;
 `
-
-
-
 function TodosLoading() {
+
+  const load = [1,2,3,4,5];
   return (
+    <>
+      {load.map(n => {
+        return(
+        <ListItem>
+          <Circle/>
+          <LoadingContainer>
+            <LoadingFirstBar />
+            <LoadingSecondBar />
+          </LoadingContainer>
+          <ContainerAnimation>
+            <AnimatedBlock/>
+          </ContainerAnimation>
+        </ListItem>)
+        
+        
+      })}
+    </>
     
-    <ListItem>
-      <Circle/>
-      <LoadingContainer>
-        <LoadingFirstBar />
-        <LoadingSecondBar />
-      </LoadingContainer>
-      <ContainerAnimation>
-        <AnimatedBlock/>
-      </ContainerAnimation>
-      
-    </ListItem>
 
   )
 }
