@@ -9,7 +9,9 @@ import {TodoSearch} from '../TodoSearch';
 import {Theme} from '../../styles/Theme';
 import {Modal} from '../../Modal';
 import {TodoForm} from '../TodoForm';
-
+import {EmptyTodos} from '../Loading_skeletons/EmptyTodos';
+import {TodosError} from '../Loading_skeletons/TodosError';
+import {TodosLoading} from '../Loading_skeletons/TodosLoading';
 function AppUi() {
   const {
     loading,
@@ -26,9 +28,11 @@ function AppUi() {
     <TodoSearch />
     
     <TodoList >
-      {loading && <p>Loading...</p>}
-      {error && <p>Error!!!</p>}
-      {(!loading && !filteredTodoList.length) && <p>Create your first to do</p>} 
+      {loading && <TodosLoading />}
+      {error && <TodosError />}
+      
+      {!loading && filteredTodoList.length === 0 && <EmptyTodos/>}
+      {(!loading && !filteredTodoList.length)} 
       {
         filteredTodoList.map(todo => {
           return <TodoItem 

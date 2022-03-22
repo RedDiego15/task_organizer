@@ -9,7 +9,6 @@ const ListItem = styled.li`
   justify-content:space-around;
   align-items:center;
   width: 100%;
-  min-height:2.5rem;
   list-style: none;
   margin:0.5rem 0;
   background-color: ${props => (props.completed ? '#5d5c54bf' : '#cac0a7b3;')};
@@ -21,7 +20,7 @@ const DeleteIcon = styled.span`
   background-image: url(${DelIcon});
   background-repeat:no-repeat;
   cursor:pointer;
-  width: 40px;
+  min-width: 40px;
   height:40px;
     &:hover{
       background-color: red;
@@ -32,7 +31,7 @@ const DeleteIcon = styled.span`
   background-color: #bae0bd;
   border: 2px solid #83b591;
   border-radius:50%;
-  width:40px;
+  min-width:40px;
   height:40px;
   cursor:pointer;
     &:hover{
@@ -44,9 +43,14 @@ const OkeyIcon = styled.span`
   background-image: url(${OkIcon});
   background-repeat:no-repeat;
   cursor:pointer;
-  width: 40px;
+  min-width: 40px;
   height:40px;
-  `
+`
+const Parrafo = styled.p`
+  padding: 10px 0;
+  width: 72%;
+  text-align: center;
+`
 
 
 
@@ -62,7 +66,7 @@ function TodoItem(props) {
   return (
     <ListItem completed = {lista.completed}>
       {button}
-      <p>{lista.text}</p>
+      <Parrafo>{lista.text}</Parrafo>
       <DeleteIcon
       onClick={onDelete}
       />

@@ -15,12 +15,15 @@ const ListItem = styled.ul`
   display: flex;
   flex-direction: column;
   overflow-y:scroll;
+  background-color: #bcb39e78;
+  padding: 10px;
   padding-right:1rem;
+  border-radius: 5px;
     &::-webkit-scrollbar{
       background-color: white;
       color: grey;
       display: inline-block;
-      width: 10px;
+      width: 6px;
       border-radius: 5px
     }
     &::-webkit-scrollbar-thumb{
