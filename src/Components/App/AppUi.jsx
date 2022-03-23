@@ -21,7 +21,6 @@ function AppUi() {
     filteredTodoList,
     toggleTodo,
     deleteTodo,} = React.useContext(TodoContext);
-    {debugger}
   return (
     <Theme theme={"principal"}>
     <TodoCounter />

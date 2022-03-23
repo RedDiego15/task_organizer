@@ -10,11 +10,11 @@ const Section = styled.section`
   
 `
 const ListItem = styled.ul`
-  max-width:30rem;
+  max-width:40rem;
   width:80%;
   display: flex;
   flex-direction: column;
-  overflow-y:scroll;
+  overflow-y:auto;
   background-color: #bcb39e78;
   padding: 10px;
   padding-right:1rem;

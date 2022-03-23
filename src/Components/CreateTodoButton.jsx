@@ -7,7 +7,7 @@ const ButtonContainer = styled.div`
   display:flex;
   justify-content: flex-end;
   margin 10px auto 0;
-  max-width: 31rem;
+  max-width: 41rem;
   z-index: 2;
   
   

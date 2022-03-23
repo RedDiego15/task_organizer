@@ -23,7 +23,7 @@ function TodosError() {
   return (
     <ContainerError>
       <Figure>
-        <Logo src = {SrcError}/>
+        <Logo src = {SrcError} alt={'error-img'}/>
       </Figure>
       <Text>Error has been occurred, Please try again Later</Text>
     </ContainerError>

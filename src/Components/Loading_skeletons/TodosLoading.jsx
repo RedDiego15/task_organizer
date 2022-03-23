@@ -71,7 +71,7 @@ function TodosLoading() {
     <>
       {load.map(n => {
         return(
-        <ListItem>
+        <ListItem key={n}>
           <Circle/>
           <LoadingContainer>
             <LoadingFirstBar />

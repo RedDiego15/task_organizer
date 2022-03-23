@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import Search_icon from '../assets/search_icon.png';
+import '../index.css'
+import { IconContext } from "react-icons";
 import {TodoContext} from '../TodoContext'
+import { FaSearch } from 'react-icons/fa';
 
 const Input = styled.input`
   position:relative;
   border:10rem;
   height: 1.5rem;
+  width: 16rem;
   padding: 1rem;
   border-radius:1rem;
   border-color:#F3F0D7;
@@ -17,14 +20,6 @@ const Input = styled.input`
   
   
 `
-const Icon = styled.img`
-  position:absolute;
-  width:25px;
-  height:25px;
-  right: calc(50% - 90px)
-  
-
-  `
 const ContainerInpunt = styled.div`
   display: flex;
   width:100%;
@@ -48,7 +43,10 @@ function TodoSearch() {
         value = {searchValue}
         onChange={onSearchValueChange}
         />
-        <Icon src={Search_icon} alt="search icon" />
+        <IconContext.Provider value={{ className: "search_icon" }}>
+          <FaSearch />
+        </IconContext.Provider>
+        
     </ContainerInpunt>
   )
 }

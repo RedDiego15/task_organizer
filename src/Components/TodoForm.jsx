@@ -4,6 +4,7 @@ import {TodoContext} from '../TodoContext'
 
 const ContainerForm = styled.div`
 width:65%;
+max-width: 28rem;
 height:13rem;
 padding: 15px;
 background-color:#d5c6a6;
@@ -96,6 +97,7 @@ function TodoForm() {
           value = {newTodoValue}
           onChange = {onChange} 
           placeholder="Write TODO"
+          required
         />
         <ContainerButton>
           <CancelButton 
