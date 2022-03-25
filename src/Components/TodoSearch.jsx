@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import '../index.css'
 import { IconContext } from "react-icons";
-import {TodoContext} from '../TodoContext'
+
 import { FaSearch } from 'react-icons/fa';
 
 const Input = styled.input`
@@ -29,9 +29,7 @@ const ContainerInpunt = styled.div`
   
 `
 
-function TodoSearch() {
-  const {searchValue,setSearchValue} = React.useContext(TodoContext)
-  
+function TodoSearch({searchValue,setSearchValue,loading}) {
   const onSearchValueChange = (e) => {
     setSearchValue(e.target.value);
   }
@@ -42,6 +40,7 @@ function TodoSearch() {
         type="text" name="" id="" 
         value = {searchValue}
         onChange={onSearchValueChange}
+        disabled={loading}
         />
         <IconContext.Provider value={{ className: "search_icon" }}>
           <FaSearch />

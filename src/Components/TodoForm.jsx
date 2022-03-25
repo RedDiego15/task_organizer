@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import {TodoContext} from '../TodoContext'
+import {TodoContext} from './App/hooks/useTodos'
 
 const ContainerForm = styled.div`
 width:65%;
@@ -50,14 +50,12 @@ border: 2px solid #5e454b;
 
 `
 
-
-function TodoForm() {
+function TodoForm({
+  addTodo,
+  setOpenModal
+}) {
 
   const [newTodoValue,setNewTodoValue] = React.useState('')
-  const {
-    addTodo,
-    setOpenModal
-  }= React.useContext(TodoContext)
 
   const handleClick = (event) => {
     if(event.target.className.includes('Modal-container'))

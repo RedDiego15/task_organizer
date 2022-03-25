@@ -34,11 +34,27 @@ const ListItem = styled.ul`
   
 `
 
-function TodoList(props) {
+function TodoList({error
+  ,loading,
+  filteredTodoList,
+  totalTasks,
+  onError,
+  onLoading,
+  onEmptyTodos,
+  onEmptySearchResults,
+  render
+
+}) {
   return (
     <Section>
+      
       <ListItem>
-        {props.children}
+        {error && onError()}
+        {!loading && totalTasks.length && onEmptyTodos()}
+        {!loading && !filteredTodoList.length && onEmptySearchResults()}
+        {loading && onLoading()}
+        {filteredTodoList.map((todo) =>render(todo) ) }
+
       </ListItem>
     </Section>
   )

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components";
-import { TodoContext } from '../TodoContext';
 
 const Header = styled.header`
   position: relative;
@@ -18,24 +17,26 @@ const Counter = styled.p`
   color:#5E454B;
 
 `
-function TodoCounter(props) {
 
-  const {totalTasks,realizedTasks} = React.useContext(TodoContext)
+function TodoCounter({totalTasks,realizedTasks,loading}) {
+
 
   React.useEffect(()=>{
-    let pendingTasks =totalTasks - realizedTasks
-
+    let pendingTasks = totalTasks - realizedTasks
     if(pendingTasks !==0){
       document.title = `Pending ${pendingTasks} Task`;
     }else{
       document.title = `No Pending Task`;
 
     }
-  },[realizedTasks])
+  },[realizedTasks,totalTasks])
+  
   return (
     <Header>
       <Title>Tasks</Title>
-      <Counter>Completed {realizedTasks} of {totalTasks} tasks</Counter>
+      {!loading && <Counter>Completed {realizedTasks} of {totalTasks} tasks</Counter>}
+      {loading && <Counter>Counting tasks...</Counter>}
+      
     </Header>
   )
 }
