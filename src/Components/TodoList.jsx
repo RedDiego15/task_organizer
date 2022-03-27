@@ -38,7 +38,6 @@ const ListItem = styled.ul`
 function TodoList({error
   ,loading,
   filteredTodoList,
-  searchValue,
   totalTasks,
   onError,
   onLoading,
@@ -53,7 +52,7 @@ function TodoList({error
       <ListItem>
         {error && onError()}
         {!loading && totalTasks===0 && onEmptyTodos()}
-        {!loading && !filteredTodoList.length && !searchValue==='' && onEmptySearchResults()}
+        {!loading && !(totalTasks===0) && !filteredTodoList.length &&  onEmptySearchResults()}
         {loading && onLoading()}
         {filteredTodoList.map((todo) =>render(todo) ) }
 

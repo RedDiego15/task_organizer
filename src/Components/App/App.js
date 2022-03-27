@@ -45,7 +45,6 @@ function App() {
       <TodoList 
         error={error}
         loading={loading}
-        searchValue = {searchValue}
         filteredTodoList = {filteredTodoList}
         totalTasks = {totalTasks}
         onError={() => <TodosError/>}
