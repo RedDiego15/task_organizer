@@ -15,6 +15,7 @@ const ListItem = styled.ul`
   display: flex;
   flex-direction: column;
   overflow-y:auto;
+  overflow-x: hidden;
   background-color: #bcb39e78;
   padding: 10px;
   padding-right:1rem;

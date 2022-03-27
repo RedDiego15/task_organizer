@@ -8,15 +8,17 @@ import '../../index.css'
 const ContainerError = styled.div`
   width:100%;
   height:100%;
-  display:flex;
+  display: grid;  
+  grid-template-columns: 1fr 1fr;
 ` 
 const ContainerText = styled(ContainerError)`
+  display:flex;
   flex-direction: column;
   gap:10px;
 `
 const Figure = styled.figure`
-  width:100%;
-  height:100%;
+  max-width: 20rem;
+  height:21rem;
 
 `
 const Logo = styled.img`

@@ -13,11 +13,11 @@ const translate = keyframes`
   }
 
   to {
-    transform: translateX(18rem);
+    transform: translateX(20rem);
   }
 `;
 const AnimatedBlock = styled.div`
-  width: 10rem;
+  width: 8rem;
   height:100%;
   border-radius:10px;
   background: linear-gradient(90deg, rgba(219,219,219,0) 0%, rgba(102,99,99,1) 53%, rgba(204,204,204,1) 100%);
@@ -55,7 +55,7 @@ const LoadingContainer = styled.div`
 
 `
 const LoadingFirstBar = styled.div`
-  width:10rem;
+  width:5rem;
   background-color:#5E454B;
   height:10px;
   border-radius:5px;

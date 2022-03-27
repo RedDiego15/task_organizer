@@ -12,7 +12,6 @@ function withStorageListener(WrapedComponent) {
           setStorageChange(true);
           props.setSincronizedItem(storageChange)
         }
-        
     }
     
     React.useEffect(()=>{

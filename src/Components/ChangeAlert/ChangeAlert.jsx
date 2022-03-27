@@ -3,7 +3,7 @@ import {withStorageListener} from './withStorageListener'
 
 function ChangeAlert({show,toggleShow}) {
   return (show)?
-          <p>the todo list is actualized</p>:
+          <p style = {{marginLeft: '15px;'}}>the todo list is actualized</p>:
           null;
   
 }
