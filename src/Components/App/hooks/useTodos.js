@@ -5,7 +5,9 @@ function useTodos(){
     const {item:todoList
         ,savedLocalTodoList:setTodoList,
         loading,
-        error
+        error,
+        sincronizedItem,
+        setSincronizedItem
       } = useLocalStorage('TODOS_V1',[]);
   
 
@@ -55,7 +57,9 @@ function useTodos(){
             deleteTodo,
             openModal,
             setOpenModal,
-            addTodo
+            addTodo,
+            sincronizedItem,
+            setSincronizedItem,
         }
     
 

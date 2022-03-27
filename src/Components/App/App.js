@@ -14,7 +14,7 @@ import {TodoForm} from '../TodoForm';
 import {EmptyTodos} from '../Loading_skeletons/EmptyTodos';
 import {TodosError} from '../Loading_skeletons/TodosError';
 import {TodosLoading} from '../Loading_skeletons/TodosLoading';
-
+import {ChangeAlertWithStorageLister} from '../ChangeAlert/ChangeAlert';
 function App() {
 
   const {
@@ -29,7 +29,8 @@ function App() {
     realizedTasks,
     searchValue,
     setSearchValue,
-    addTodo
+    addTodo,
+    setSincronizedItem
   } = useTodos();
 
   return (
@@ -44,6 +45,7 @@ function App() {
       <TodoList 
         error={error}
         loading={loading}
+        searchValue = {searchValue}
         filteredTodoList = {filteredTodoList}
         totalTasks = {totalTasks}
         onError={() => <TodosError/>}
@@ -59,25 +61,7 @@ function App() {
             />
         }}
 
-      />
-      
-      {/* <TodoList >
-        {loading && <TodosLoading />}
-        {error && <TodosError />}
-        {!loading && filteredTodoList.length === 0 && <EmptyTodos/>}
-        {(!loading && !filteredTodoList.length)} 
-        {
-          filteredTodoList.map(todo => {
-            return <TodoItem 
-              key = {todo.text} 
-              lista={todo}
-              onComplete = {()=> toggleTodo(todo.text)}
-              onDelete = {() => deleteTodo(todo.text)} 
-              />
-          })
-        }
-      </TodoList > */}
-      
+      />      
       {openModal && (
       <Modal>
         <TodoForm 
@@ -90,6 +74,7 @@ function App() {
     <CreateTodoButton 
       setOpenModal={setOpenModal}
     />
+    <ChangeAlertWithStorageLister setSincronizedItem={setSincronizedItem}/>
   </Theme>
     
   )

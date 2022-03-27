@@ -1,9 +1,11 @@
 import React from 'react'
 
 function useLocalStorage(itemName, initialValue) {
+    const [sincronizedItem,setSincronizedItem] = React.useState(true); 
     const [item,setItem] = React.useState(initialValue); 
     const [loading,setLoading] = React.useState(true);
     const [error,setError] = React.useState(false);
+
     React.useEffect(() => {
         setTimeout(() => {
 
@@ -20,13 +22,14 @@ function useLocalStorage(itemName, initialValue) {
                 }
                 setItem(parsedItem);
                 setLoading(false);
+                setSincronizedItem(true)
 
             }catch(error){
                 setError(true);
             }
             
         },1000)
-    },[])
+    },[sincronizedItem])
 
     
     
@@ -43,7 +46,8 @@ function useLocalStorage(itemName, initialValue) {
         item,
         savedLocalTodoList,
         loading,
-        error
+        error,
+        setSincronizedItem
     }
 }
 export {useLocalStorage}
