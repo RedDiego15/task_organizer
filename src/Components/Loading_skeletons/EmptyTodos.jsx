@@ -17,8 +17,8 @@ const ContainerText = styled(ContainerError)`
   gap:10px;
 `
 const Figure = styled.figure`
-  max-width: 20rem;
-  height:21rem;
+  width: 100%;
+  height:100%;
 
 `
 const Logo = styled.img`
