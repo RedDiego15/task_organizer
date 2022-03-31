@@ -55,18 +55,18 @@ const Parrafo = styled.p`
 
 
 function TodoItem(props) {
-  const {lista,onComplete,onDelete} = props;
+  const {todo,onComplete,onDelete} = props;
   let button;
-  if(lista.completed){
+  if(todo.completed){
     button = <OkeyIcon onClick={onComplete}/>
   }else{
     button = <Circle onClick={onComplete}/>
   }
 
   return (
-    <ListItem completed = {lista.completed}>
+    <ListItem completed = {todo.completed}>
       {button}
-      <Parrafo>{lista.text}</Parrafo>
+      <Parrafo>{todo.text}</Parrafo>
       <DeleteIcon
       onClick={onDelete}
       />

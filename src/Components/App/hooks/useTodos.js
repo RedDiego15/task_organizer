@@ -13,10 +13,11 @@ function useTodos(){
 
   const [searchValue,setSearchValue] = React.useState('');
   const [openModal,setOpenModal] = React.useState(false);
+  
   const realizedTasks = todoList.filter((task) => task.completed).length
   const totalTasks = todoList.length
-
   const filteredTodoList = todoList.filter((task) => task.text.toLowerCase().includes(searchValue.toLowerCase()));
+
   
   const getIdxCopyList = (text) =>{
     const idx = todoList.findIndex((todo) => todo.text.toLowerCase() === text.toLowerCase() )
@@ -45,22 +46,30 @@ function useTodos(){
     setTodoList(newTodos);
   }
 
-    return {
-            loading,
-            error,
-            realizedTasks,
-            totalTasks,
-            searchValue,
-            setSearchValue,
-            filteredTodoList,
-            toggleTodo,
-            deleteTodo,
-            openModal,
-            setOpenModal,
-            addTodo,
-            sincronizedItem,
-            setSincronizedItem,
-        }
+  const state = {
+    loading,
+    error,
+    totalTasks,
+    filteredTodoList,
+    sincronizedItem,
+    searchValue,
+    realizedTasks
+    
+  }
+  const stateUpdater={
+    setSearchValue,
+    toggleTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+    addTodo,
+    setSincronizedItem,
+  }
+  return {
+    state,
+    stateUpdater,
+    
+  }
     
 
 }

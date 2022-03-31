@@ -17,21 +17,25 @@ import {TodosLoading} from '../Loading_skeletons/TodosLoading';
 import {ChangeAlertWithStorageLister} from '../ChangeAlert/ChangeAlert';
 function App() {
 
+  const {state,stateUpdater} = useTodos();
   const {
     loading,
     error,
-    openModal,
-    setOpenModal,
-    filteredTodoList,
-    toggleTodo,
-    deleteTodo,
     totalTasks,
     realizedTasks,
     searchValue,
+    filteredTodoList,
+  } = state;
+
+  const {
+    openModal,
+    setOpenModal,
+    toggleTodo,
+    deleteTodo,
     setSearchValue,
     addTodo,
-    setSincronizedItem
-  } = useTodos();
+    setSincronizedItem,
+  } = stateUpdater;
 
   return (
     <Theme theme={"principal"}>
@@ -54,7 +58,7 @@ function App() {
         render = {todo => {
           return <TodoItem 
             key = {todo.text} 
-            lista={todo}
+            todo={todo}
             onComplete = {()=> toggleTodo(todo.text)}
             onDelete = {() => deleteTodo(todo.text)} 
             />

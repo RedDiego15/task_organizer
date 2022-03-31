@@ -20,9 +20,10 @@ const Counter = styled.p`
 
 function TodoCounter({totalTasks,realizedTasks,loading}) {
 
-
+ 
   React.useEffect(()=>{
     let pendingTasks = totalTasks - realizedTasks
+    
     if(pendingTasks !==0){
       document.title = `Pending ${pendingTasks} Task`;
     }else{
